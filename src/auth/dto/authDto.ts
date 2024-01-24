@@ -13,9 +13,8 @@ password:string
 @IsNotEmpty()
 email:string
 
-@IsInt()
 @IsNotEmpty()
-mobileNo:number
+mobileNo:string
 
 
 }

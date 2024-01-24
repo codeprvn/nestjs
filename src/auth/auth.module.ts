@@ -23,10 +23,10 @@ import { APP_GUARD } from '@nestjs/core';
       signOptions: { expiresIn: '500000s' },
     })],
   controllers: [AuthController],
-  providers: [AuthService,
+  providers: [AuthService
     // globally Authgard for all apis
-    {provide: APP_GUARD,
-    useClass: AuthGuard,}
-  ,]
+    // {provide: APP_GUARD,
+    // useClass: AuthGuard,}
+  ]
 })
 export class AuthModule {}

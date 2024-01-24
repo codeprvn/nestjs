@@ -36,7 +36,7 @@ export class AuthService {
 
     async registration (body: any){
         try{
-            const registration: any = await this.userModel.findOne({or: [
+            const registration: any = await this.userModel.findOne({$or: [
                 {userName: body.userName},
                 {mobileNo: body.mobileNo},
                 {email: body.email}
