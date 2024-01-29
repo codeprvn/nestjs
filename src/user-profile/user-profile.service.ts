@@ -9,8 +9,9 @@ export class UserProfileService {
 
     }
 
-  async creatUserService(body:any){
+  async creatUserService(body:any, user:any){
     try{
+      console.trace('lineno', user)
     let userData:any = await this.userProfileModal.findOne({$or:
       [
         {userName: body.userName},
@@ -18,9 +19,9 @@ export class UserProfileService {
         {emailId: body.emailId}
     ]
     })
-    if(userData?.userName) throw new NotAcceptableException('Username Already exits');
-    if(userData?.mobile) throw new NotAcceptableException('Mobile Already exits');
-    if(userData?.emailId) throw new NotAcceptableException('emailId Already exits');
+    if(userData?.userName === body.userName) throw new NotAcceptableException('Username Already exits');
+    if(userData?.mobile === body.mobile) throw new NotAcceptableException('Mobile Already exits');
+    if(userData?.emailId === body?.emailId) throw new NotAcceptableException('emailId Already exits');
 
     const newUser = await this.userProfileModal.create(body);
     if (!newUser)  throw new NotAcceptableException('Unable to create...')
@@ -65,6 +66,10 @@ export class UserProfileService {
     throw err;
   }
 
+ }
+
+ async getUserWithQuery(query : any){
+console.log(query)
  }
 
 }

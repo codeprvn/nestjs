@@ -29,7 +29,6 @@ export class AuthService {
           access_token: await this.jwtService.signAsync(payload),
         };
       } catch (err) {
-
         throw err;
       }
     }
