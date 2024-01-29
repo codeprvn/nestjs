@@ -5,8 +5,8 @@ import { user } from './schemas/loginSchemas';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
-import { AuthGuard } from './guard/auth.guard';
-import { APP_GUARD } from '@nestjs/core';
+// import { AuthGuard } from './guard/auth.guard';
+// import { APP_GUARD } from '@nestjs/core';
 
 @Module({
     imports:[
