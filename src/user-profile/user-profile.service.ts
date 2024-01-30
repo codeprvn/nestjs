@@ -11,7 +11,7 @@ export class UserProfileService {
 
   async creatUserService(body:any, user:any){
     try{
-      console.trace('lineno', user)
+      if(body.password === body.confirmPassword) throw new NotAcceptableException('Password not matching')
     let userData:any = await this.userProfileModal.findOne({$or:
       [
         {userName: body.userName},
@@ -58,7 +58,6 @@ export class UserProfileService {
  async deleteUserService(param:any){
   try{
     let userData: any = await this.userProfileModal.findByIdAndDelete(param.id)
-    console.log(userData);
     if (userData && !userData.deletedCount) throw new NotAcceptableException('User not Found');
     if(userData && userData.deletedCount) return { message:'Successfuly deleted...'};
     throw new NotAcceptableException('Unable to delete...');

@@ -13,9 +13,9 @@ import { ConfigModule } from '@nestjs/config';
       // injeacting Mongoose module
       MongooseModule.forFeature([{ name: 'user', schema: user }]),
     // env Config
-    ConfigModule.forRoot({
-      envFilePath: '.env'
-    }),
+    // ConfigModule.forRoot({
+    //   envFilePath: '.env'
+    // }),
     // jwt config
     JwtModule.register({
       global:true,
