@@ -11,7 +11,7 @@ export class UserProfileService {
 
   async creatUserService(body:any, user:any){
     try{
-      if(body.password === body.confirmPassword) throw new NotAcceptableException('Password not matching')
+      if(body.password !== body.confirmPassword) throw new NotAcceptableException('Password not matching')
     let userData:any = await this.userProfileModal.findOne({$or:
       [
         {userName: body.userName},
